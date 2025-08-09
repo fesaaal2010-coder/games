@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غرف VIP - Legends Gaming</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .vip-hero {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(155, 93, 229, 0.9));
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .vip-hero h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        
+        .vip-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .vip-rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .vip-room-card {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .vip-room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+        
+        .room-title h3 {
+            color: #ffd700;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .room-price {
+            font-size: 2rem;
+            color: #ffd700;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .btn-book-vip {
+            background: linear-gradient(135deg, #ffd700, #9b5de5);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="img/logo-NLNVC_Qt.svg" alt="Legends Gaming Logo" class="logo-image">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                </li>
+                <li class="nav-item">
+                    <a href="vip-rooms.html" class="nav-link">غرف VIP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link login-btn">تسجيل دخول</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="vip-hero">
+        <div class="container">
+            <h1>غرف VIP</h1>
+            <p>تجربة فريدة ومميزة لأصحاب الذوق الرفيع</p>
+        </div>
+    </section>
+
+    <div class="vip-container">
+        <div class="vip-rooms-grid">
+            <div class="vip-room-card">
+                <h3 class="room-title">غرفة Diamond VIP</h3>
+                <div class="room-price">150 ريال/ساعة</div>
+                <p>غرفة فردية مع أحدث الأجهزة وخدمة متميزة</p>
+                <button class="btn-book-vip">احجز الآن</button>
+            </div>
+            
+            <div class="vip-room-card">
+                <h3 class="room-title">غرفة Platinum VIP</h3>
+                <div class="room-price">300 ريال/ساعة</div>
+                <p>غرفة فريق لـ 4 لاعبين مع تجهيزات كاملة</p>
+                <button class="btn-book-vip">احجز الآن</button>
+            </div>
+            
+            <div class="vip-room-card">
+                <h3 class="room-title">غرفة Gold VIP</h3>
+                <div class="room-price">120 ريال/ساعة</div>
+                <p>غرفة فردية مريحة مع أجهزة عالية الأداء</p>
+                <button class="btn-book-vip">احجز الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Legends Gaming. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

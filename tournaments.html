@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البطولات - Legends Gaming</title>
+    <meta name="description" content="شارك في بطولات الألعاب الإلكترونية واحصل على جوائز قيمة">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Changa:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .tournaments-hero {
+            background: linear-gradient(135deg, rgba(155, 93, 229, 0.9), rgba(0, 245, 212, 0.9)), url('img/13-Ce7BiRa4.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .tournaments-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .tournaments-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tournaments-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #00f5d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tournaments-hero p {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+        
+        .tournaments-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .tournaments-filters {
+            background: rgba(155, 93, 229, 0.1);
+            border: 1px solid rgba(155, 93, 229, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            color: #00f5d4;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            padding: 12px 16px;
+            border: 2px solid rgba(155, 93, 229, 0.3);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-group select:focus,
+        .filter-group input:focus {
+            border-color: #00f5d4;
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
+        }
+        
+        .tournaments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tournament-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(155, 93, 229, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tournament-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #9b5de5, #00f5d4);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .tournament-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .tournament-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(155, 93, 229, 0.3);
+            border-color: #00f5d4;
+        }
+        
+        .tournament-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .tournament-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #9b5de5, #00f5d4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+        }
+        
+        .tournament-icon i {
+            font-size: 1.5rem;
+            color: #000;
+        }
+        
+        .tournament-info h3 {
+            color: #00f5d4;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .tournament-game {
+            color: #9b5de5;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .tournament-date {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        .tournament-details {
+            margin-bottom: 20px;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(155, 93, 229, 0.1);
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        .detail-value {
+            color: #00f5d4;
+            font-weight: 600;
+        }
+        
+        .tournament-prize {
+            background: rgba(0, 245, 212, 0.1);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .prize-amount {
+            font-size: 1.8rem;
+            color: #00f5d4;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .prize-label {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        .tournament-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .status-badge.ongoing {
+            background: rgba(0, 255, 0, 0.2);
+            color: #00ff00;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+        }
+        
+        .status-badge.upcoming {
+            background: rgba(0, 245, 212, 0.2);
+            color: #00f5d4;
+            border: 1px solid rgba(0, 245, 212, 0.3);
+        }
+        
+        .status-badge.completed {
+            background: rgba(155, 93, 229, 0.2);
+            color: #9b5de5;
+            border: 1px solid rgba(155, 93, 229, 0.3);
+        }
+        
+        .participants-count {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        .tournament-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-join {
+            background: linear-gradient(135deg, #9b5de5, #00f5d4);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+        
+        .btn-join:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(155, 93, 229, 0.4);
+        }
+        
+        .btn-join:disabled {
+            background: rgba(155, 93, 229, 0.3);
+            color: #666;
+            cursor: not-allowed;
+        }
+        
+        .btn-details {
+            background: transparent;
+            color: #00f5d4;
+            border: 2px solid #00f5d4;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-details:hover {
+            background: #00f5d4;
+            color: #000;
+        }
+        
+        .leaderboard-section {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .leaderboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .leaderboard-header h2 {
+            color: #00f5d4;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 245, 212, 0.2);
+        }
+        
+        .leaderboard-table th {
+            color: #00f5d4;
+            font-weight: 600;
+            background: rgba(0, 245, 212, 0.1);
+        }
+        
+        .leaderboard-table td {
+            color: #cccccc;
+        }
+        
+        .rank-1 { color: #ffd700; font-weight: 700; }
+        .rank-2 { color: #c0c0c0; font-weight: 600; }
+        .rank-3 { color: #cd7f32; font-weight: 600; }
+        
+        @media (max-width: 768px) {
+            .tournaments-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tournaments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tournament-actions {
+                flex-direction: column;
+            }
+            
+            .leaderboard-table {
+                font-size: 0.9rem;
+            }
+            
+            .leaderboard-table th,
+            .leaderboard-table td {
+                padding: 10px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="img/logo-NLNVC_Qt.svg" alt="Legends Gaming Logo" class="logo-image">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link">الخدمات</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">عن الشركة</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">تواصل معنا</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link login-btn">
+                        <i class="fas fa-user"></i>
+                        تسجيل دخول
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tournaments Hero Section -->
+    <section class="tournaments-hero">
+        <div class="container">
+            <div class="tournaments-hero-content" data-aos="fade-up">
+                <h1>بطولات الألعاب</h1>
+                <p>شارك في البطولات واحصل على جوائز قيمة وكن من الأساطير</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournaments Container -->
+    <div class="tournaments-container">
+        <!-- Filters Section -->
+        <div class="tournaments-filters" data-aos="fade-up">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="game">اللعبة</label>
+                    <select id="game">
+                        <option value="">جميع الألعاب</option>
+                        <option value="fortnite">Fortnite</option>
+                        <option value="cod">Call of Duty</option>
+                        <option value="lol">League of Legends</option>
+                        <option value="valorant">Valorant</option>
+                        <option value="csgo">CS:GO</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="status">الحالة</label>
+                    <select id="status">
+                        <option value="">جميع الحالات</option>
+                        <option value="upcoming">قادمة</option>
+                        <option value="ongoing">جارية</option>
+                        <option value="completed">مكتملة</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="type">نوع البطولة</label>
+                    <select id="type">
+                        <option value="">جميع الأنواع</option>
+                        <option value="solo">فردية</option>
+                        <option value="team">فريق</option>
+                        <option value="battle-royale">معركة ملكية</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="prize">الجائزة</label>
+                    <select id="prize">
+                        <option value="">جميع الجوائز</option>
+                        <option value="high">عالية (1000+ ريال)</option>
+                        <option value="medium">متوسطة (500-1000 ريال)</option>
+                        <option value="low">منخفضة (أقل من 500 ريال)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tournaments Grid -->
+        <div class="tournaments-grid">
+            <!-- Tournament 1 -->
+            <div class="tournament-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="tournament-header">
+                    <div class="tournament-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="tournament-info">
+                        <h3>بطولة Fortnite الموسمية</h3>
+                        <p class="tournament-game">Fortnite</p>
+                        <p class="tournament-date">15 يناير 2025</p>
+                    </div>
+                </div>
+                
+                <div class="tournament-details">
+                    <div class="detail-row">
+                        <span class="detail-label">نوع البطولة</span>
+                        <span class="detail-value">فريق (3 لاعبين)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">عدد المشاركين</span>
+                        <span class="detail-value">64 فريق</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">مدة البطولة</span>
+                        <span class="detail-value">4 ساعات</span>
+                    </div>
+                </div>
+                
+                <div class="tournament-prize">
+                    <div class="prize-amount">5,000 ريال</div>
+                    <div class="prize-label">الجائزة الأولى</div>
+                </div>
+                
+                <div class="tournament-status">
+                    <span class="status-badge upcoming">قادمة</span>
+                    <span class="participants-count">32/64 فريق</span>
+                </div>
+                
+                <div class="tournament-actions">
+                    <button class="btn-join">انضم الآن</button>
+                    <button class="btn-details">التفاصيل</button>
+                </div>
+            </div>
+
+            <!-- Tournament 2 -->
+            <div class="tournament-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="tournament-header">
+                    <div class="tournament-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <div class="tournament-info">
+                        <h3>معركة Call of Duty</h3>
+                        <p class="tournament-game">Call of Duty: Warzone</p>
+                        <p class="tournament-date">20 يناير 2025</p>
+                    </div>
+                </div>
+                
+                <div class="tournament-details">
+                    <div class="detail-row">
+                        <span class="detail-label">نوع البطولة</span>
+                        <span class="detail-value">فردية</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">عدد المشاركين</span>
+                        <span class="detail-value">128 لاعب</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">مدة البطولة</span>
+                        <span class="detail-value">3 ساعات</span>
+                    </div>
+                </div>
+                
+                <div class="tournament-prize">
+                    <div class="prize-amount">3,000 ريال</div>
+                    <div class="prize-label">الجائزة الأولى</div>
+                </div>
+                
+                <div class="tournament-status">
+                    <span class="status-badge upcoming">قادمة</span>
+                    <span class="participants-count">89/128 لاعب</span>
+                </div>
+                
+                <div class="tournament-actions">
+                    <button class="btn-join">انضم الآن</button>
+                    <button class="btn-details">التفاصيل</button>
+                </div>
+            </div>
+
+            <!-- Tournament 3 -->
+            <div class="tournament-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="tournament-header">
+                    <div class="tournament-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <div class="tournament-info">
+                        <h3>بطولة League of Legends</h3>
+                        <p class="tournament-game">League of Legends</p>
+                        <p class="tournament-date">25 يناير 2025</p>
+                    </div>
+                </div>
+                
+                <div class="tournament-details">
+                    <div class="detail-row">
+                        <span class="detail-label">نوع البطولة</span>
+                        <span class="detail-value">فريق (5 لاعبين)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">عدد المشاركين</span>
+                        <span class="detail-value">32 فريق</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">مدة البطولة</span>
+                        <span class="detail-value">يومين</span>
+                    </div>
+                </div>
+                
+                <div class="tournament-prize">
+                    <div class="prize-amount">8,000 ريال</div>
+                    <div class="prize-label">الجائزة الأولى</div>
+                </div>
+                
+                <div class="tournament-status">
+                    <span class="status-badge upcoming">قادمة</span>
+                    <span class="participants-count">24/32 فريق</span>
+                </div>
+                
+                <div class="tournament-actions">
+                    <button class="btn-join">انضم الآن</button>
+                    <button class="btn-details">التفاصيل</button>
+                </div>
+            </div>
+
+            <!-- Tournament 4 -->
+            <div class="tournament-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="tournament-header">
+                    <div class="tournament-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="tournament-info">
+                        <h3>بطولة Valorant</h3>
+                        <p class="tournament-game">Valorant</p>
+                        <p class="tournament-date">10 يناير 2025</p>
+                    </div>
+                </div>
+                
+                <div class="tournament-details">
+                    <div class="detail-row">
+                        <span class="detail-label">نوع البطولة</span>
+                        <span class="detail-value">فريق (5 لاعبين)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">عدد المشاركين</span>
+                        <span class="detail-value">16 فريق</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">مدة البطولة</span>
+                        <span class="detail-value">يوم واحد</span>
+                    </div>
+                </div>
+                
+                <div class="tournament-prize">
+                    <div class="prize-amount">4,000 ريال</div>
+                    <div class="prize-label">الجائزة الأولى</div>
+                </div>
+                
+                <div class="tournament-status">
+                    <span class="status-badge ongoing">جارية</span>
+                    <span class="participants-count">16/16 فريق</span>
+                </div>
+                
+                <div class="tournament-actions">
+                    <button class="btn-join" disabled>مكتملة</button>
+                    <button class="btn-details">التفاصيل</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Section -->
+        <div class="leaderboard-section" data-aos="fade-up">
+            <div class="leaderboard-header">
+                <h2>قائمة المتصدرين</h2>
+                <p>أفضل اللاعبين في البطولات السابقة</p>
+            </div>
+            
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>المرتبة</th>
+                        <th>اللاعب</th>
+                        <th>النقاط</th>
+                        <th>البطولات</th>
+                        <th>الجوائز</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rank-1">🥇 1</td>
+                        <td>أحمد الأسطورة</td>
+                        <td>2,450</td>
+                        <td>15</td>
+                        <td>25,000 ريال</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-2">🥈 2</td>
+                        <td>محمد المحترف</td>
+                        <td>2,180</td>
+                        <td>12</td>
+                        <td>18,000 ريال</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-3">🥉 3</td>
+                        <td>علي البطل</td>
+                        <td>1,950</td>
+                        <td>10</td>
+                        <td>15,000 ريال</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>خالد النمر</td>
+                        <td>1,780</td>
+                        <td>8</td>
+                        <td>12,000 ريال</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>فهد الأسد</td>
+                        <td>1,650</td>
+                        <td>7</td>
+                        <td>10,000 ريال</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Legends Gaming</h3>
+                    <p>أقوى مجتمع لاعبين في الشرق الأوسط</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#about">عن الشركة</a></li>
+                        <li><a href="index.html#services">الخدمات</a></li>
+                        <li><a href="index.html#legends">الأساطير</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>الخدمات</h4>
+                    <ul>
+                        <li><a href="booking.html">صالات الألعاب</a></li>
+                        <li><a href="tournaments.html">البطولات</a></li>
+                        <li><a href="#">غرف VIP</a></li>
+                        <li><a href="#">التدريب</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +966 50 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@legendsgaming.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Legends Gaming. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Filter functionality
+        document.querySelectorAll('select').forEach(element => {
+            element.addEventListener('change', filterTournaments);
+        });
+
+        function filterTournaments() {
+            const game = document.getElementById('game').value;
+            const status = document.getElementById('status').value;
+            const type = document.getElementById('type').value;
+            const prize = document.getElementById('prize').value;
+            
+            // Add filter logic here
+            console.log('Filtering tournaments:', { game, status, type, prize });
+        }
+
+        // Join tournament functionality
+        document.querySelectorAll('.btn-join').forEach(button => {
+            button.addEventListener('click', function() {
+                if (!this.disabled) {
+                    const tournamentCard = this.closest('.tournament-card');
+                    const tournamentName = tournamentCard.querySelector('h3').textContent;
+                    
+                    // Show join modal or redirect to registration
+                    alert(`جاري الانضمام لبطولة: ${tournamentName}`);
+                }
+            });
+        });
+
+        // Details functionality
+        document.querySelectorAll('.btn-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const tournamentCard = this.closest('.tournament-card');
+                const tournamentName = tournamentCard.querySelector('h3').textContent;
+                
+                // Show detailed information
+                alert(`تفاصيل بطولة: ${tournamentName}`);
+            });
+        });
+    </script>
+</body>
+</html>
