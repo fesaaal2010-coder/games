@@ -1,0 +1,37 @@
+{
+  "name": "legends-gaming",
+  "version": "1.0.0",
+  "description": "موقع عربي متجاوب بأسلوب نيون مستقبلي لمجتمع اللاعبين",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Build completed'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "gaming",
+    "arabic",
+    "neon",
+    "cyberpunk",
+    "responsive",
+    "legends",
+    "gaming-center"
+  ],
+  "author": "Legends Gaming Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legendsgaming/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/legendsgaming/website/issues"
+  },
+  "homepage": "https://legendsgaming.net",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

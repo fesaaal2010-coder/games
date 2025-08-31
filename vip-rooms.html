@@ -1,1 +1,402 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>غرف VIP - Legends Gaming</title><link rel="stylesheet" href="styles.css"><style> .vip-hero { background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(155, 93, 229, 0.9)); padding: 120px 0 80px; text-align: center; } .vip-hero h1 { font-size: 3.5rem; color: #ffffff; margin-bottom: 1rem; } .vip-container { max-width: 1400px; margin: 0 auto; padding: 60px 20px; } .vip-rooms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 60px; } .vip-room-card { background: rgba(0, 0, 0, 0.9); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 15px; padding: 25px; transition: all 0.3s ease; } .vip-room-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2); } .room-title h3 { color: #ffd700; font-size: 1.4rem; margin-bottom: 15px; } .room-price { font-size: 2rem; color: #ffd700; font-weight: 700; margin-bottom: 20px; } .btn-book-vip { background: linear-gradient(135deg, #ffd700, #9b5de5); color: #000; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; } </style></head><body><nav class="navbar"><div class="nav-container"><div class="nav-logo"><a href="index.html"><img src="img/logo-NLNVC_Qt.svg" alt="Legends Gaming Logo" class="logo-image"></a></div><ul class="nav-menu"><li class="nav-item"><a href="index.html" class="nav-link">الرئيسية</a></li><li class="nav-item"><a href="vip-rooms.html" class="nav-link">غرف VIP</a></li><li class="nav-item"><a href="login.html" class="nav-link login-btn">تسجيل دخول</a></li></ul></div></nav><section class="vip-hero"><div class="container"><h1>غرف VIP</h1><p>تجربة فريدة ومميزة لأصحاب الذوق الرفيع</p></div></section><div class="vip-container"><div class="vip-rooms-grid"><div class="vip-room-card"><h3 class="room-title">غرفة Diamond VIP</h3><div class="room-price">150 ريال/ساعة</div><p>غرفة فردية مع أحدث الأجهزة وخدمة متميزة</p><button class="btn-book-vip">احجز الآن</button></div><div class="vip-room-card"><h3 class="room-title">غرفة Platinum VIP</h3><div class="room-price">300 ريال/ساعة</div><p>غرفة فريق لـ 4 لاعبين مع تجهيزات كاملة</p><button class="btn-book-vip">احجز الآن</button></div><div class="vip-room-card"><h3 class="room-title">غرفة Gold VIP</h3><div class="room-price">120 ريال/ساعة</div><p>غرفة فردية مريحة مع أجهزة عالية الأداء</p><button class="btn-book-vip">احجز الآن</button></div></div></div><footer class="footer"><div class="container"><p>&copy; 2024 Legends Gaming. جميع الحقوق محفوظة</p></div></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غرف VIP - Legends Gaming</title>
+    <meta name="description" content="غرف VIP فاخرة مع أجهزة متطورة وخدمة متميزة للاعبين المحترفين">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Changa:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Interactive Background Elements -->
+    <div class="interactive-background">
+        <div class="neon-grid"></div>
+        <div class="neon-orb"></div>
+        <div class="neon-orb"></div>
+        <div class="neon-orb"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="img/logo-NLNVC_Qt.svg" alt="Legends Gaming Logo" class="logo-image">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">الرئيسية</a>
+                </li>
+                <li class="nav-item">
+                    <a href="vip-rooms.html" class="nav-link active">غرف VIP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tournaments.html" class="nav-link">البطولات</a>
+                </li>
+                <li class="nav-item">
+                    <a href="booking.html" class="nav-link">الحجز</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link login-btn">تسجيل دخول</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="vip-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="floating-elements">
+                <div class="floating-icon"><i class="fas fa-crown"></i></div>
+                <div class="floating-icon"><i class="fas fa-gem"></i></div>
+                <div class="floating-icon"><i class="fas fa-star"></i></div>
+                <div class="floating-icon"><i class="fas fa-trophy"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <h1 class="hero-title">
+                    <span class="title-accent">غرف VIP</span>
+                    <span class="title-subtitle">تجربة فريدة ومميزة</span>
+                </h1>
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                    استمتع بأعلى مستويات الراحة والتكنولوجيا في غرفنا الفاخرة المصممة خصيصاً للاعبين المحترفين
+                </p>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">أنواع غرف</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">RTX 4090</div>
+                        <div class="stat-label">أحدث الأجهزة</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">خدمة متواصلة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Rooms Section -->
+    <section class="vip-rooms-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">اختر غرفتك المفضلة</h2>
+                <p class="section-subtitle">كل غرفة مصممة لتوفر لك تجربة لا تُنسى</p>
+            </div>
+            
+            <div class="vip-rooms-grid">
+                <!-- Golden VIP Room -->
+                <div class="vip-room-card golden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="room-header">
+                        <div class="room-badge">
+                            <i class="fas fa-crown"></i>
+                            <span>ذهبية</span>
+                        </div>
+                        <div class="room-image">
+                            <img src="img/01-B3-Zl4Bv.jpg" alt="غرفة VIP ذهبية - صالة ألعاب فاخرة">
+                            <div class="room-overlay">
+                                <div class="room-features-preview">
+                                    <span><i class="fas fa-check"></i> RTX 4090</span>
+                                    <span><i class="fas fa-check"></i> 4K 144Hz</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-content">
+                        <h3 class="room-title">غرفة VIP ذهبية</h3>
+                        <div class="room-description">
+                            تجربة ألعاب استثنائية مع أحدث التقنيات وأعلى مستويات الراحة
+                        </div>
+                        
+                        <div class="room-features">
+                            <div class="feature-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>جهاز كمبيوتر محترف RTX 4090</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tv"></i>
+                                <span>شاشة 4K 144Hz</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chair"></i>
+                                <span>كرسي ألعاب فاخر</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-coffee"></i>
+                                <span>خدمة مشروبات مجانية</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-wifi"></i>
+                                <span>إنترنت فائق السرعة</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-snowflake"></i>
+                                <span>تكييف ذكي</span>
+                            </div>
+                        </div>
+                        
+                        <div class="room-footer">
+                            <div class="room-price">
+                                <span class="price-amount">50</span>
+                                <span class="price-currency">ريال</span>
+                                <span class="price-period">/ساعة</span>
+                            </div>
+                            <button class="btn btn-primary btn-book-vip" data-room="golden">
+                                <i class="fas fa-calendar-check"></i>
+                                احجز الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diamond VIP Room -->
+                <div class="vip-room-card diamond featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="featured-badge">الأكثر طلباً</div>
+                    <div class="room-header">
+                        <div class="room-badge">
+                            <i class="fas fa-gem"></i>
+                            <span>ماسية</span>
+                        </div>
+                        <div class="room-image">
+                            <img src="img/02-BVlalDVK.jpg" alt="غرفة VIP ماسية - صالة ألعاب احترافية">
+                            <div class="room-overlay">
+                                <div class="room-features-preview">
+                                    <span><i class="fas fa-check"></i> RTX 4090</span>
+                                    <span><i class="fas fa-check"></i> 4K 240Hz</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-content">
+                        <h3 class="room-title">غرفة VIP ماسية</h3>
+                        <div class="room-description">
+                            مستوى استثنائي من الفخامة مع خدمات إضافية ومزايا حصرية
+                        </div>
+                        
+                        <div class="room-features">
+                            <div class="feature-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>جهاز كمبيوتر محترف RTX 4090</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tv"></i>
+                                <span>شاشة 4K 240Hz</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chair"></i>
+                                <span>كرسي ألعاب فاخر</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-coffee"></i>
+                                <span>خدمة مشروبات مجانية</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>وجبات خفيفة مجانية</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-wifi"></i>
+                                <span>إنترنت فائق السرعة</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-snowflake"></i>
+                                <span>تكييف ذكي</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-headphones"></i>
+                                <span>سماعات احترافية</span>
+                            </div>
+                        </div>
+                        
+                        <div class="room-footer">
+                            <div class="room-price">
+                                <span class="price-amount">75</span>
+                                <span class="price-currency">ريال</span>
+                                <span class="price-period">/ساعة</span>
+                            </div>
+                            <button class="btn btn-primary btn-book-vip" data-room="diamond">
+                                <i class="fas fa-calendar-check"></i>
+                                احجز الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Star VIP Room -->
+                <div class="vip-room-card star" data-aos="fade-up" data-aos-delay="300">
+                    <div class="room-header">
+                        <div class="room-badge">
+                            <i class="fas fa-star"></i>
+                            <span>نجمية</span>
+                        </div>
+                        <div class="room-image">
+                            <img src="img/03-C4CGZVbe.jpg" alt="غرفة VIP نجمية - صالة ألعاب فاخرة">
+                            <div class="room-overlay">
+                                <div class="room-features-preview">
+                                    <span><i class="fas fa-check"></i> RTX 4090</span>
+                                    <span><i class="fas fa-check"></i> 4K 240Hz</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="room-content">
+                        <h3 class="room-title">غرفة VIP نجمية</h3>
+                        <div class="room-description">
+                            تجربة VIP كاملة مع مدرب شخصي وخدمات حصرية للاعبين المحترفين
+                        </div>
+                        
+                        <div class="room-features">
+                            <div class="feature-item">
+                                <i class="fas fa-microchip"></i>
+                                <span>جهاز كمبيوتر محترف RTX 4090</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tv"></i>
+                                <span>شاشة 4K 240Hz</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chair"></i>
+                                <span>كرسي ألعاب فاخر</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-coffee"></i>
+                                <span>خدمة مشروبات مجانية</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>وجبات خفيفة مجانية</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>مدرب شخصي</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-wifi"></i>
+                                <span>إنترنت فائق السرعة</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-snowflake"></i>
+                                <span>تكييف ذكي</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-headphones"></i>
+                                <span>سماعات احترافية</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>أجهزة تحكم احترافية</span>
+                            </div>
+                        </div>
+                        
+                        <div class="room-footer">
+                            <div class="room-price">
+                                <span class="price-amount">100</span>
+                                <span class="price-currency">ريال</span>
+                                <span class="price-period">/ساعة</span>
+                            </div>
+                            <button class="btn btn-primary btn-book-vip" data-room="star">
+                                <i class="fas fa-calendar-check"></i>
+                                احجز الآن
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section class="additional-services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">خدمات إضافية</h2>
+                <p class="section-subtitle">نوفر لك كل ما تحتاجه لتجربة ألعاب مثالية</p>
+            </div>
+            
+            <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>مطعم داخلي</h3>
+                    <p>أطباق شهية من أشهى المطاعم المحلية والعالمية</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>موقف سيارات</h3>
+                    <p>موقف سيارات مجاني وآمن لجميع الزوار</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>أمان 24/7</h3>
+                    <p>نظام أمان متطور مع كاميرات مراقبة على مدار الساعة</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>فريق دعم</h3>
+                    <p>فريق دعم متخصص لمساعدتك في أي وقت</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>جاهز لتجربة VIP؟</h2>
+                <p>احجز غرفتك الآن واستمتع بتجربة ألعاب لا تُنسى</p>
+                <div class="cta-buttons">
+                    <a href="booking.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-calendar-alt"></i>
+                        احجز الآن
+                    </a>
+                    <a href="tel:+966501234567" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i>
+                        اتصل بنا
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
